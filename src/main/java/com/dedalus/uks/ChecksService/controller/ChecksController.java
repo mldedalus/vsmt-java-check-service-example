@@ -76,21 +76,10 @@ public class ChecksController extends BaseController {
         
         ActivityDefinition activityDefinition = parseResult.getActivityDefinition();
     
+        /// Implement Check Logic Here
+
         OperationOutcome operationOutcome = new OperationOutcome(); 
-        if (activityDefinition.getCode().getCoding().get(0).getCode().equals("code-in-release")) {
-
-            if (parseResult.getFocusResource() instanceof ValueSet) {
-                operationOutcome = checkService.checkCodesinRelease((ValueSet)parseResult.getFocusResource(), activityDefinition.getCode().getCoding().get(0).getCode());
-            } else {
-                OperationOutcomeIssueComponent issue = new OperationOutcomeIssueComponent();
-                issue.setSeverity(IssueSeverity.ERROR);
-                issue.setCode(IssueType.INVALID);
-                issue.setDiagnostics("Focus resource needs to be a ValueSet for check code in release: " + activityDefinition.getCode().getCoding().get(0).getCode() + ". it is currently a " + parseResult.getFocusResource().getClass().getSimpleName());
-                operationOutcome.addIssue(issue);
-                return new ResponseEntity<>(jsonParser.encodeResourceToString(operationOutcome), responseHeaders, HttpStatus.BAD_REQUEST);
-            }
-
-        } else if (activityDefinition.getCode().getCoding().get(0).getCode().equals("code-format")) {
+        if (activityDefinition.getCode().getCoding().get(0).getCode().equals("code-format")) {
 
             if (parseResult.getFocusResource() instanceof ValueSet) {
                 operationOutcome = checkService.checkCodeFormat((ValueSet)parseResult.getFocusResource(), activityDefinition.getCode().getCoding().get(0).getCode());
