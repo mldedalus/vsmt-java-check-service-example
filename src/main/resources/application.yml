@@ -1,0 +1,17 @@
+# application.yml
+server:
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css
+    min-response-size: 1024
+checks:
+  terminologyServer:
+      endpoint: https://services.vsmt.dc4h.link/authoring/fhir
+      authenticationEndpoint: https://services.vsmt.dc4h.link/authorisation/auth/realms/terminology/protocol/openid-connect/token
+      client_id: your-client-id
+      client_secret: your-client-secret
+  fhirServer:
+      endpoint: https://services.vsmt.dc4h.link/fhir
+      authenticationEndpoint: https://services.vsmt.dc4h.link/authorisation/auth/realms/terminology/protocol/openid-connect/token
+      client_id: your-client-id
+      client_secret: your-client-secret

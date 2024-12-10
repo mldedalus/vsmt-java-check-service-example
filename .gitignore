@@ -1,0 +1,10 @@
+target/
+target/classes/application.yml
+target/classes/com/dedalus/uks/VSMTConceptService/VsmtConceptServiceApplication.class
+target/classes/com/dedalus/uks/VSMTConceptService/config/S3IndexerConfig.class
+target/classes/com/dedalus/uks/VSMTConceptService/config/S3IndexerConfig$S3Download.class
+target/classes/com/dedalus/uks/VSMTConceptService/controller/ConceptController.class
+target/classes/com/dedalus/uks/VSMTConceptService/service/S3Indexer.class
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+
